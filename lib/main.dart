@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/firebase_options.dart';
+import 'package:flutter_application_5/screens/categories_screen.dart';
+import 'package:flutter_application_5/screens/devInfo.dart';
+import 'package:flutter_application_5/screens/home_screen.dart';
 import 'package:flutter_application_5/screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application_5/screens/splash_screen.dart';
@@ -26,6 +29,21 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: SplashScreen(),
+    );
+  }
+}
+
+ class Developer extends StatelessWidget {
+  const Developer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Developers App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: DevelopersInfo(),
     );
   }
 }

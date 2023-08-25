@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_5/screens/aboutUs.dart';
 import 'package:flutter_application_5/screens/devInfo.dart';
 import 'package:flutter_application_5/screens/logout_screen.dart';
-import 'package:flutter_application_5/screens/page1.dart';
+import 'package:flutter_application_5/screens/homepage.dart';
 import 'package:flutter_application_5/screens/categories_screen.dart';
 import 'package:flutter_application_5/screens/page3.dart';
 
@@ -16,11 +16,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  List<Widget> pages = [Page1() , CategoriesListPage(), Page3()];
+  List<Widget> pages = [homePage() , CategoriesListPage(), Page3()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
+        backgroundColor: Colors.deepPurple,
       actions: [
       Padding(
       padding: EdgeInsets.only(right: 16.0),

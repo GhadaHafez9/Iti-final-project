@@ -28,7 +28,11 @@ List<String> selectedCategories = [];
     return Scaffold(
       appBar: AppBar(title: const Text('Categories' ,
        style: TextStyle(color: Colors.white),),
-      centerTitle: true, backgroundColor: Colors.deepPurple, toolbarHeight: 40 ,),
+       centerTitle: true, backgroundColor: Colors.deepPurple, toolbarHeight: 40 ,
+      automaticallyImplyLeading: false,
+
+      
+      ),
       body: Column(
         children: [
           Container(

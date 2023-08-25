@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Page2 extends StatefulWidget {
-  const Page2({super.key});
+class CategoriesListScreen extends StatefulWidget {
+  const CategoriesListScreen({super.key});
 
   @override
-  State<Page2> createState() => _Page2State();
+  State<CategoriesListScreen> createState() => _CategoriesListScreenState();
 }
 
-class _Page2State extends State<Page2> {
+class _CategoriesListScreenState extends State<CategoriesListScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("it's Page2"),
+      child: Text("it's CategoriesListScreen"),
     );
   }
 }

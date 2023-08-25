@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/HomeScreen.dart';
-import 'package:flutter_application_3/NavBar.dart';
+//import 'package:flutter_application_3/NavBar.dart';
 import 'package:flutter_application_3/sign.dart';
 
 class LogOut extends StatefulWidget {

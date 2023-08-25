@@ -10,6 +10,8 @@ class SignupScreen extends StatefulWidget {
 
 class _SignUpState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController firstNamecontroller = TextEditingController();
+  TextEditingController lastNamecontroller = TextEditingController();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
 
@@ -50,7 +52,7 @@ class _SignUpState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: emailcontroller,
+                    controller: firstNamecontroller,
                     decoration: const InputDecoration(labelText: 'First Name'),
                     validator: (value) {
                       if (value == null || value.length > 3) {
@@ -63,7 +65,7 @@ class _SignUpState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: emailcontroller,
+                    controller: lastNamecontroller,
                     decoration: const InputDecoration(labelText: 'Last Name'),
                     validator: (value) {
                       if (value == null || value.length > 3) {

@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  List<Widget> pages = [Page1() , CategoriesListPage(), Page3()];
+  List<Widget> pages = [Page1() , CategoriesListPage(), UserProfileScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

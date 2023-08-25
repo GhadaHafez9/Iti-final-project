@@ -48,7 +48,7 @@ class _SignUpState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/flash.jpg',
+                  'assets/flash_logo.png',
                   width: 400,
                   height: 250,
                 ),

@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const SigninScreen()));
     });
@@ -37,13 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: Center(
           child: SizedBox(
-            width: 150,
+           // width: 150,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   'assets/flash_logo.png',
-                  width: 150,
+                  width: 300,
                 ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,

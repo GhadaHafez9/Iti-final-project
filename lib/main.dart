@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_5/firebase_options.dart';
 import 'package:flutter_application_5/screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_5/screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SigninScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -21,7 +21,11 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.deepPurple, toolbarHeight: 40,),
+      appBar: AppBar(backgroundColor: Colors.deepPurple, toolbarHeight: 40,
+        automaticallyImplyLeading: false,
+
+      
+      ),
       body: 
       Form(key: _formKey,
       child: Padding(
@@ -30,7 +34,7 @@ class _SigninScreenState extends State<SigninScreen> {
                child: Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
-                        Image.asset('assets/flash.jpg',width: 400, height: 250,),
+                        Image.asset('assets/flash_logo.png',width: 250, height: 250,),
                         Padding( padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: emailcontroller,

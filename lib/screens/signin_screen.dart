@@ -30,7 +30,7 @@ class _SigninScreenState extends State<SigninScreen> {
                child: Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
-                        Image.asset('assets/New 2.png',width: 400, height: 250,),
+                        Image.asset('assets/flash_logo.png',width: 400, height: 250,),
                         Padding( padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: emailcontroller,

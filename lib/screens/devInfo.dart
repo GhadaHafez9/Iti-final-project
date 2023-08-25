@@ -51,7 +51,7 @@ class DevelopersInfo extends StatelessWidget {
       body: Column(
         children: [
           Image.asset(
-            'assets/New 2.png',
+            'assets/flash_logo.png',
             height: 150,
             width: 150,
           ),

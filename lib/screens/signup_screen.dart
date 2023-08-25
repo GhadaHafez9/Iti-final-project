@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/screens/home_screen.dart';
 import 'package:flutter_application_5/widgets/custom_buttom.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -10,9 +13,11 @@ class SignupScreen extends StatefulWidget {
 
 class _SignUpState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController firstNamecontroller = TextEditingController();
+  TextEditingController lastNamecontroller = TextEditingController();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +48,14 @@ class _SignUpState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/flash_logo.png',
+                  'assets/flash.jpg',
                   width: 400,
                   height: 250,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: emailcontroller,
+                    controller: firstNamecontroller,
                     decoration: const InputDecoration(labelText: 'First Name'),
                     validator: (value) {
                       if (value == null || value.length > 3) {
@@ -63,7 +68,7 @@ class _SignUpState extends State<SignupScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: emailcontroller,
+                    controller: lastNamecontroller,
                     decoration: const InputDecoration(labelText: 'Last Name'),
                     validator: (value) {
                       if (value == null || value.length > 3) {
@@ -119,7 +124,24 @@ class _SignUpState extends State<SignupScreen> {
                 MyCustomButton(
                   buttonLabel: "Sign Up",
                   onTap: () async {
-                    //Firebase Code Here
+                     bool result = await  fireBaseSignup(emailcontroller.text, passwordcontroller.text);  
+                         if(result == true) {
+                    if (_formKey.currentState!.validate()) {
+                       final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('email', emailcontroller.text);
+
+                    Navigator.push(
+                               context,
+                             MaterialPageRoute(
+                              builder: (context) =>  HomeScreen(
+                              email: emailcontroller.text,
+                             )),
+                                  );
+                    }
+                     } else {ScaffoldMessenger.of(context).showSnackBar(
+                           SnackBar(content: Text('Sign up Failed')),
+                          );}
+
                   },
                 ),
                 const SizedBox(height: 18.0),
@@ -136,4 +158,25 @@ class _SignUpState extends State<SignupScreen> {
       ),
     );
   }
+
+
+     Future<bool> fireBaseSignup(String email, String password) async {
+    try {
+  UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: email,
+    password: password,
+  );
+  if(userCredential.user != null) {
+    return true;
+  }
+} on FirebaseAuthException catch (e) {
+  if (e.code == 'user-not-found') {
+    print('No user found for that email.');
+  } else if (e.code == 'wrong-password') {
+    print('Wrong password provided for that user.');
+  }
+  }
+      return false;
+ }
 }
+

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/screens/signin_screen.dart';
 //import 'package:flutter_application_3/NavBar.dart';
-import 'package:flutter_application_3/sign.dart';
 
 class LogOut extends StatefulWidget {
   const LogOut({super.key});
@@ -49,7 +49,7 @@ class _LogOutState extends State<LogOut> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SignScreen()),
+                  MaterialPageRoute(builder: (context) => SigninScreen()),
                 );
               },
             ),

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_5/screens/page1.dart';
+import 'package:flutter_application_5/screens/aboutUs.dart';
 import 'package:flutter_application_5/screens/categories_screen.dart';
+import 'package:flutter_application_5/screens/devInfo.dart';
+import 'package:flutter_application_5/screens/logout_screen.dart';
 import 'package:flutter_application_5/screens/page3.dart';
 
+
+import 'page1.dart';
+
 class HomeScreen extends StatefulWidget {
-  String email;
-  HomeScreen({super.key, required this.email});
+  const HomeScreen({super.key, required String email});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -13,38 +17,74 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-
-  List<Widget> pages = [
-    Page1(), 
-    CategoriesListPage(),
-    Page3()];
-
+  List<Widget> pages = [Page1() , CategoriesListPage(), Page3()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( backgroundColor: Colors.deepPurple, toolbarHeight: 40,
-        title: Text(''),
-        
+      appBar:AppBar(
+        backgroundColor: Colors.deepPurple,
+      actions: [
+      Padding(
+      padding: EdgeInsets.only(right: 16.0),
+      child: Image.asset(
+        'assets/New 2.png',
+        height: 40,
       ),
+    ),
+  ],  
+      ),
+      
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+           DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.indigoAccent,
+                color: Colors.deepPurple,
+                image: DecorationImage(
+                  image: AssetImage('assets/New 2.png'), 
+                  fit: BoxFit.contain,
+                ),
               ),
               child: Text(
-                'Profile',
+                'FLASH',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 18,
                 ),
               ),
             ),
-          
-           
-          
+            ListTile(
+              leading: Icon(Icons.pending),
+              title: Text('About Us'),
+              onTap: () {
+                // Handle drawer item tap
+                 Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  AboutUs() )) ;
+
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.people_sharp),
+              title: Text('Developers Info'),
+              onTap: () {
+                // Handle drawer item tap
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  DevelopersInfo() )) ;
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout_rounded),
+              title: Text('Log out'),
+              onTap: () {
+                // Handle drawer item tap
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  LogOut() )) ;
+              },
+        )
         ],
         ),
       ),
@@ -53,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex : currentIndex ,
         items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label:" Home" , backgroundColor: Colors.blueAccent ),
-         BottomNavigationBarItem(icon: Icon(Icons.category), label:" Categories" , backgroundColor:  Colors.blueAccent ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label:" My Profile", backgroundColor: Colors.blueAccent  ),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label:" Home" , backgroundColor:Colors.deepPurple, ),
+         BottomNavigationBarItem(icon: Icon(Icons.category), label:" Categories" , backgroundColor: Colors.deepPurple, ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label:" My Profile", backgroundColor:Colors.deepPurple,  ),
            
           
       ],
@@ -64,8 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {});
         print(value);
       },
-
       ),
+      
     );
   }
-}
+  }
+

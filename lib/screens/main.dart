@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_5/firebase_options.dart';
+import 'package:flutter/material.dart' ;
+import 'package:flutter_application_5/screens/firebase_options.dart';
 import 'package:flutter_application_5/screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      debugShowCheckedModeBanner : false,
-      title: 'Flash',
+      debugShowCheckedModeBanner: false,// To remove the red banner
+      title: 'FLASH',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.deepPurple,
+         useMaterial3: true,
       ),
+      
       home: SigninScreen(),
     );
   }

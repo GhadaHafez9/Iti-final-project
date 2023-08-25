@@ -25,15 +25,9 @@ class _CategoriesListPageState extends State<CategoriesListPage> {
           selectedCategories.contains(product.category);
     }).toList();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Categories',
-          style: TextStyle(color: Colors.white),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurple,
-        toolbarHeight: 40,
-      ),
+      appBar: AppBar(title: const Text('Categories' ,
+       style: TextStyle(color: Colors.white),),
+      centerTitle: true, backgroundColor: Colors.deepPurple, toolbarHeight: 40 ,),
       body: Column(
         children: [
           SingleChildScrollView(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class homePage extends StatefulWidget {
-  const homePage({super.key});
+class Page1 extends StatefulWidget {
+  const Page1({super.key});
 
   @override
-  State<homePage> createState() => _homePageState();
+  State<Page1> createState() => _Page1State();
 }
 
-class _homePageState extends State<homePage> {
+class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     Map product = {"name": "Galaxy", "category": "Mobile", "price": "120"};
